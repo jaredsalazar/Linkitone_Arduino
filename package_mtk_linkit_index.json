@@ -16,10 +16,10 @@
           "help": {
             "online": "https://web.archive.org/web/20211028072637/http://labs.mediatek.com/forums/forums/show/11.page"
           },
-          "url": "https://github.com/Venator2013/arduino_mt2502/archive/refs/heads/main.zip",
-          "archiveFileName": "mediatek_linkit_sdk_(for_arduino_1.6)-1.1.23.zip",
-          "checksum": "SHA-256:36452fa39473c12cc4974a86bc0f3ab33d04eba85f32a3dc1297866fd0a61872",
-          "size": "751040",
+          "url": "https://raw.githubusercontent.com/jaredsalazar/Linkitone_Arduino/main/linkitone_1.0.34.zip",
+          "archiveFileName": "linkitone_1.0.34.zip",
+          "checksum": "SHA-256:d0f0212566e1d95994ff1331241998a5114916948393b9f10cafdc2d5ab41ee5",
+          "size": "710375",
           "boards": [
             {"name": "LinkIt ONE"}
           ],
@@ -27,12 +27,7 @@
             {
               "packager": "LinkIt",
               "name": "arm-none-eabi-gcc",
-              "version": "4.8.3-2014q1"
-            },
-            {
-              "packager": "LinkIt",
-              "name": "linkit_tools",
-              "version": "1.1.23"
+              "version": "4.4.1"
             }
           ]
         },
