@@ -16,7 +16,7 @@
           "help": {
             "online": "https://web.archive.org/web/20211028072637/http://labs.mediatek.com/forums/forums/show/11.page"
           },
-          "url": "https://web.archive.org/web/20211028072637/http://download.labs.mediatek.com/mediatek_linkit_sdk_(for_arduino_1.6)-1.1.23.zip",
+          "url": "https://github.com/Venator2013/arduino_mt2502/archive/refs/heads/main.zip",
           "archiveFileName": "mediatek_linkit_sdk_(for_arduino_1.6)-1.1.23.zip",
           "checksum": "SHA-256:36452fa39473c12cc4974a86bc0f3ab33d04eba85f32a3dc1297866fd0a61872",
           "size": "751040",
