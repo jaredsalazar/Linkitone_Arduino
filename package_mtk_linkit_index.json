@@ -19,7 +19,7 @@
           "url": "https://raw.githubusercontent.com/jaredsalazar/Linkitone_Arduino/main/linkitone_1.0.34.zip",
           "archiveFileName": "linkitone_1.0.34.zip",
           "checksum": "SHA-256:515d3c87d2bdf85e19a7f06cc4048e3a265d5f9f9c0713adafe9d176a4f608c5",
-          "size": "70512",
+          "size": "700600",
           "boards": [
             {"name": "LinkIt ONE"}
           ],
