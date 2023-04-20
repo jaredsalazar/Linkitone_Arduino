@@ -75,11 +75,11 @@
             {
                 "systems": [
                     {
-                        "size": "168931",
+                        "size": "168844",
                         "host": "i686-mingw32",
-                        "url": "https://github.com/v-i-s-h/LinkItOne-Linux-Arduino/archive/master.zip",
-                        "checksum": "SHA-256:10a73b6e0a12b9ccfaa0791ad83ca911f69c3e725be266272d239b310f51e6d5",
-                        "archiveFileName": "master.zip"
+                        "url": "https://github.com/jaredsalazar/Linkitone_Arduino/blob/main/mediatek_linkit_sdk_tool_windows-1.1.17.zip",
+                        "checksum": "SHA-256:801879b29208b88bb2690b4f23eac296e4eb6a6407c1ade082549212a9d5b0c9",
+                        "archiveFileName": "mediatek_linkit_sdk_tool_windows-1.1.17.zip"
                     },
                     {
                         "size": "168931",
