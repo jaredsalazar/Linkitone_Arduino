@@ -18,8 +18,8 @@
             },
             "url": "https://github.com/eggfly/MediaTek_LinkIt_SDK_for_Arduino/archive/refs/heads/master.zip",
             "archiveFileName": "master.zip",
-            "checksum": "SHA-256:10a73b6e0a12b9ccfaa0791ad83ca911f69c3e725be266272d239b310f51e6d5",
-            "size": "168931",
+            "checksum": "SHA-256:1fe0ea9cf28a24aa67f231e9b24fabfefb95d7a26b3899786102418e784d1ee0",
+            "size": "799845",
             "boards": [
               {"name": "LinkIt ONE"}
             ],
