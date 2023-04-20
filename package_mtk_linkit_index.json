@@ -24,11 +24,16 @@
               {"name": "LinkIt ONE"}
             ],
             "toolsDependencies": [
-              {
-                "packager": "LinkIt",
-                "name": "arm-none-eabi-gcc",
-                "version": "4.8.3-2014q1"
-              }
+                {
+                    "packager": "LinkIt",
+                    "version": "4.8.3-2014q1",
+                    "name": "arm-none-eabi-gcc"
+                },
+                {
+                    "packager": "LinkIt",
+                    "version": "1.1.17",
+                    "name": "linkit_tools"
+                }
             ]
           }
         ],
