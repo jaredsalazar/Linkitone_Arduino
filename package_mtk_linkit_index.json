@@ -79,7 +79,7 @@
                         "host": "i686-mingw32",
                         "url": "https://github.com/v-i-s-h/LinkItOne-Linux-Arduino/archive/master.zip",
                         "checksum": "SHA-256:10a73b6e0a12b9ccfaa0791ad83ca911f69c3e725be266272d239b310f51e6d5",
-                        "archiveFileName": "mediatek_linkit_sdk_tool_windows-1.1.17.zip"
+                        "archiveFileName": "master.zip"
                     },
                     {
                         "size": "168931",
