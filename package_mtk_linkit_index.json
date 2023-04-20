@@ -56,7 +56,7 @@
                     {
                         "size": "169224",
                         "host": "i686-mingw32",
-                        "url": "https://github.com/jaredsalazar/Linkitone_Arduino/blob/main/mediatek_linkit_sdk_tool_windows-1.1.17.zip",
+                        "url": "https://github.com/jaredsalazar/Linkitone_Arduino/raw/main/mediatek_linkit_sdk_tool_windows-1.1.17.zip",
                         "checksum": "SHA-256:84611b2a7aa6fdb69165d3b6caa71d7a86f1cb414a5bd247db3bac0c20aa25d5",
                         "archiveFileName": "mediatek_linkit_sdk_tool_windows-1.1.17.zip"
                     }
