@@ -43,13 +43,6 @@
                         "archiveFileName": "gcc-arm-none-eabi-4.8.3-2014q1-windows.tar.gz"
                     },
                     {
-                        "size": "52518522",
-                        "host": "x86_64-apple-darwin",
-                        "url": "https://web.archive.org/web/20210224123720/http://downloads.arduino.cc/gcc-arm-none-eabi-4.8.3-2014q1-mac.tar.gz",
-                        "checksum": "SHA-256:3598acf21600f17a8e4a4e8e193dc422b894dc09384759b270b2ece5facb59c2",
-                        "archiveFileName": "gcc-arm-none-eabi-4.8.3-2014q1-mac.tar.gz"
-                    },
-                    {
                         "size": "51395093",
                         "host": "x86_64-pc-linux-gnu",
                         "url": "https://web.archive.org/web/20210224123720/http://downloads.arduino.cc/gcc-arm-none-eabi-4.8.3-2014q1-linux64.tar.gz",
@@ -70,18 +63,11 @@
             {
                 "systems": [
                     {
-                        "size": "16372292",
+                        "size": "168931",
                         "host": "i686-mingw32",
-                        "url": "http://download.labs.mediatek.com/mediatek_linkit_sdk_tool_windows-1.1.17.zip",
-                        "checksum": "SHA-256:dd7df756143d368b7645580f561f8a04f0b21431a12ae0bbcedc96a967597152",
+                        "url": "https://github.com/v-i-s-h/LinkItOne-Linux-Arduino/archive/master.zip",
+                        "checksum": "SHA-256:10a73b6e0a12b9ccfaa0791ad83ca911f69c3e725be266272d239b310f51e6d5",
                         "archiveFileName": "mediatek_linkit_sdk_tool_windows-1.1.17.zip"
-                    },
-                    {
-                        "size": "16408710",
-                        "host": "x86_64-apple-darwin",
-                        "url": "http://download.labs.mediatek.com/mediatek_linkit_sdk_tool_osx-1.1.17.tar.gz",
-                        "checksum": "SHA-256:de53967e4a2270f80ff2f3b48192b8bc09c79558bcaa2c4dd06c3933956f2e2c",
-                        "archiveFileName": "mediatek_linkit_sdk_tool_osx-1.1.17.tar.gz"
                     },
                     {
                         "size": "168931",
