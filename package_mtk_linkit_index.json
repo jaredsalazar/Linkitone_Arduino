@@ -16,10 +16,10 @@
             "help": {
               "online": "https://web.archive.org/web/20211028072637/http://labs.mediatek.com/forums/forums/show/11.page"
             },
-            "url": "https://github.com/eggfly/MediaTek_LinkIt_SDK_for_Arduino/archive/refs/heads/master.zip",
-            "archiveFileName": "master.zip",
-            "checksum": "SHA-256:1fe0ea9cf28a24aa67f231e9b24fabfefb95d7a26b3899786102418e784d1ee0",
-            "size": "799845",
+            "url": "https://raw.githubusercontent.com/jaredsalazar/Linkitone_Arduino/main/MediaTek_LinkIt_SDK_for_Arduino_1.1.17.zip",
+            "archiveFileName": "MediaTek_LinkIt_SDK_for_Arduino_1.1.17.zip",
+            "checksum": "SHA-256:46c4d4bea2e907cb92cf944173433a8d40e47ff2796e2068628d802646b502f8",
+            "size": "767292",
             "boards": [
               {"name": "LinkIt ONE"}
             ],
@@ -28,7 +28,12 @@
                     "packager": "LinkIt",
                     "version": "4.8.3-2014q1",
                     "name": "arm-none-eabi-gcc"
-                }
+                },
+                {
+                  "packager": "LinkIt",
+                  "version": "1.1.17",
+                  "name": "linkit_tools"
+              }
             ]
           }
         ],
@@ -49,10 +54,10 @@
             {
                 "systems": [
                     {
-                        "size": "169224",
+                        "size": "169022",
                         "host": "i686-mingw32",
-                        "url": "https://github.com/jaredsalazar/Linkitone_Arduino/raw/main/mediatek_linkit_sdk_tool_windows-1.1.17.zip",
-                        "checksum": "SHA-256:84611b2a7aa6fdb69165d3b6caa71d7a86f1cb414a5bd247db3bac0c20aa25d5",
+                        "url": "https://raw.githubusercontent.com/jaredsalazar/Linkitone_Arduino/main/mediatek_linkit_sdk_tool_windows-1.1.17.zip",
+                        "checksum": "SHA-256:4e2ff9f80c996e818feed714b89b8ee73c85025b8adf84853b7fca4e1c261fb0",
                         "archiveFileName": "mediatek_linkit_sdk_tool_windows-1.1.17.zip"
                     }
                 ],
