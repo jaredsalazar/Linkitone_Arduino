@@ -1,0 +1,87 @@
+{
+  "packages": [
+    {
+      "name": "mediatek",
+      "maintainer": "LinkIt ONE Community",
+      "websiteURL": "https://github.com/jaredsalazar/Linkitone_Arduino",
+      "email": "",
+      "help": {
+        "online": "https://github.com/jaredsalazar/Linkitone_Arduino"
+      },
+      "platforms": [
+        {
+          "name": "MediaTek LinkIt ONE",
+          "architecture": "mtk",
+          "version": "1.5.6-linkit-modern.1",
+          "category": "Contributed",
+          "help": {
+            "online": "https://github.com/jaredsalazar/Linkitone_Arduino"
+          },
+          "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-platform-1.5.6-linkit-modern.1.zip",
+          "archiveFileName": "linkit-one-platform-1.5.6-linkit-modern.1.zip",
+          "checksum": "SHA-256:4DA5842A474185EE60B4804D6704F09009D2BA5AF808085A6D9A7F77A4D60AAA",
+          "size": "690136",
+          "boards": [
+            {
+              "name": "LinkIt ONE"
+            }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "mediatek",
+              "name": "g++_arm_none_eabi",
+              "version": "1.5.6-linkit-modern.1"
+            },
+            {
+              "packager": "mediatek",
+              "name": "mtk",
+              "version": "1.5.6-linkit-modern.1"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "name": "g++_arm_none_eabi",
+          "version": "1.5.6-linkit-modern.1",
+          "systems": [
+            {
+              "host": "x86_64-mingw32",
+              "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-toolchain-arm-none-eabi-1.5.6-linkit-modern.1.zip",
+              "archiveFileName": "linkit-one-toolchain-arm-none-eabi-1.5.6-linkit-modern.1.zip",
+              "checksum": "SHA-256:F6BB83682D932D148E284B8D0BB294EE132AAA6EA0AF3AB5BAAC36A9ABEB2B54",
+              "size": "26174685"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-toolchain-arm-none-eabi-1.5.6-linkit-modern.1.zip",
+              "archiveFileName": "linkit-one-toolchain-arm-none-eabi-1.5.6-linkit-modern.1.zip",
+              "checksum": "SHA-256:F6BB83682D932D148E284B8D0BB294EE132AAA6EA0AF3AB5BAAC36A9ABEB2B54",
+              "size": "26174685"
+            }
+          ]
+        },
+        {
+          "name": "mtk",
+          "version": "1.5.6-linkit-modern.1",
+          "systems": [
+            {
+              "host": "x86_64-mingw32",
+              "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-tool-mtk-1.5.6-linkit-modern.1.zip",
+              "archiveFileName": "linkit-one-tool-mtk-1.5.6-linkit-modern.1.zip",
+              "checksum": "SHA-256:BBAB3E2DBEF65AF798C1B2EB24C476541D10AEC20250328A38D385B683A60F1C",
+              "size": "10661148"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-tool-mtk-1.5.6-linkit-modern.1.zip",
+              "archiveFileName": "linkit-one-tool-mtk-1.5.6-linkit-modern.1.zip",
+              "checksum": "SHA-256:BBAB3E2DBEF65AF798C1B2EB24C476541D10AEC20250328A38D385B683A60F1C",
+              "size": "10661148"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
