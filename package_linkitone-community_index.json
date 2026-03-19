@@ -19,8 +19,8 @@
           },
           "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-platform-1.5.6-linkit-modern.1.zip",
           "archiveFileName": "linkit-one-platform-1.5.6-linkit-modern.1.zip",
-          "checksum": "SHA-256:4DA5842A474185EE60B4804D6704F09009D2BA5AF808085A6D9A7F77A4D60AAA",
-          "size": "690136",
+          "checksum": "SHA-256:1572C1B37E9E8EA178237559284BF724B0D73A2EA9F71E436B03AFA19DC78600",
+          "size": "90230",
           "boards": [
             {
               "name": "LinkIt ONE"
@@ -49,14 +49,14 @@
               "host": "x86_64-mingw32",
               "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-toolchain-arm-none-eabi-1.5.6-linkit-modern.1.zip",
               "archiveFileName": "linkit-one-toolchain-arm-none-eabi-1.5.6-linkit-modern.1.zip",
-              "checksum": "SHA-256:F6BB83682D932D148E284B8D0BB294EE132AAA6EA0AF3AB5BAAC36A9ABEB2B54",
+              "checksum": "SHA-256:3492B59CACC836B7CD3103E4A674081C020D3D14956E8E8E36D11078BE538809",
               "size": "26174685"
             },
             {
               "host": "i686-mingw32",
               "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-toolchain-arm-none-eabi-1.5.6-linkit-modern.1.zip",
               "archiveFileName": "linkit-one-toolchain-arm-none-eabi-1.5.6-linkit-modern.1.zip",
-              "checksum": "SHA-256:F6BB83682D932D148E284B8D0BB294EE132AAA6EA0AF3AB5BAAC36A9ABEB2B54",
+              "checksum": "SHA-256:3492B59CACC836B7CD3103E4A674081C020D3D14956E8E8E36D11078BE538809",
               "size": "26174685"
             }
           ]
@@ -69,14 +69,14 @@
               "host": "x86_64-mingw32",
               "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-tool-mtk-1.5.6-linkit-modern.1.zip",
               "archiveFileName": "linkit-one-tool-mtk-1.5.6-linkit-modern.1.zip",
-              "checksum": "SHA-256:BBAB3E2DBEF65AF798C1B2EB24C476541D10AEC20250328A38D385B683A60F1C",
+              "checksum": "SHA-256:0DF284B167BF34B0DA0F25ADE9A318C6CD6641E0DA31AA83B1345B274E89DFB6",
               "size": "10661148"
             },
             {
               "host": "i686-mingw32",
               "url": "https://github.com/jaredsalazar/Linkitone_Arduino/releases/download/v1.5.6-linkit-modern.1/linkit-one-tool-mtk-1.5.6-linkit-modern.1.zip",
               "archiveFileName": "linkit-one-tool-mtk-1.5.6-linkit-modern.1.zip",
-              "checksum": "SHA-256:BBAB3E2DBEF65AF798C1B2EB24C476541D10AEC20250328A38D385B683A60F1C",
+              "checksum": "SHA-256:0DF284B167BF34B0DA0F25ADE9A318C6CD6641E0DA31AA83B1345B274E89DFB6",
               "size": "10661148"
             }
           ]
