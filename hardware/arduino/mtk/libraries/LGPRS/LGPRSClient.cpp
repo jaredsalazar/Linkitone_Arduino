@@ -1,0 +1,58 @@
+/*
+  Copyright (c) 2014 MediaTek Inc.  All right reserved.
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License..
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+   See the GNU Lesser General Public License for more details.
+*/
+#include "LGPRSClient.h"
+#include <vmconn.h>
+#include <vmtcp.h>
+#include "LGPRS.h"
+
+static VMINT currentGprsApn()
+{
+  return LGPRS.getAPN();
+}
+
+LGPRSClient::LGPRSClient():
+  LTcpClient()
+{
+  m_apn = currentGprsApn();
+}
+
+LGPRSClient::LGPRSClient(const LTcpClient &rhs):
+  LTcpClient(rhs)
+{
+  m_apn = currentGprsApn();
+}
+
+LGPRSClient::LGPRSClient(VMINT handle):
+  LTcpClient(handle)
+{
+  m_apn = currentGprsApn();
+}
+
+LGPRSClient::LGPRSClient(VMINT handle, VMINT serverHandle):
+  LTcpClient(handle, serverHandle)
+{
+  m_apn = currentGprsApn();
+}
+
+int LGPRSClient::connect(IPAddress ip, uint16_t port)
+{
+  m_apn = currentGprsApn();
+  return LTcpClient::connect(ip, port);
+}
+
+int LGPRSClient::connect(const char *host, uint16_t port)
+{
+  m_apn = currentGprsApn();
+  return LTcpClient::connect(host, port);
+}
