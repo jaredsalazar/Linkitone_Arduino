@@ -35,6 +35,8 @@ const char PASCO_WRITE_CHAR_FALLBACK[] = "4a5c0000-0003-0000-0000-5c1e741f1c00";
 const char PASCO_NOTIFY_CHAR_0[] = "4a5c0000-0002-0000-0000-5c1e741f1c00";
 const char PASCO_NOTIFY_CHAR_1[] = "4a5c0001-0002-0000-0000-5c1e741f1c00";
 const char PASCO_READ_NOTIFY_CHAR[] = "4a5c0001-0004-0000-0000-5c1e741f1c00";
+const uint8_t PASCO_READ_ONE_SAMPLE_CMD = 0x05;
+const uint8_t PASCO_SOIL_MOISTURE_PACKET_SIZE = 0x02;
 
 String hexEncode(const uint8_t *data, size_t len) {
   String out;
@@ -125,6 +127,19 @@ void printPacket(const char *direction, BLERemoteCharacteristic *chr, const uint
     Serial.print(" b=");
     Serial.println((int)data[2]);
   }
+
+  if (length >= 5 && data[0] == 0xC0 && data[1] == 0x00 && data[2] == PASCO_READ_ONE_SAMPLE_CMD) {
+    Serial.print("Decoded READ_ONE_SAMPLE response payload bytes=");
+    Serial.println((int)(length - 3));
+
+    if (length >= 5) {
+      uint16_t raw16 = (uint16_t)data[3] | ((uint16_t)data[4] << 8);
+      Serial.print("Decoded READ_ONE_SAMPLE raw16=");
+      Serial.print(raw16);
+      Serial.print(" normalized=");
+      Serial.println(raw16 / 4095.0f, 4);
+    }
+  }
 }
 
 bool parseHexString(const String &text, uint8_t *buffer, size_t &outLen) {
@@ -170,6 +185,8 @@ void printHelp() {
   Serial.println("  pasco           -> run PASCO-style command probes on both channels");
   Serial.println("  pasco0          -> run PASCO-style command probes on pasco-write-0");
   Serial.println("  pasco1          -> run PASCO-style command probes on pasco-write-1");
+  Serial.println("  sample0         -> send PASCO READ_ONE_SAMPLE [05 02] to pasco-write-0");
+  Serial.println("  sample1         -> send PASCO READ_ONE_SAMPLE [05 02] to pasco-write-1");
 }
 
 void printTargets() {
@@ -263,6 +280,7 @@ void runPascoCommandSequence(BLERemoteCharacteristic *target, const char *label)
 
   const uint8_t keepAlive[] = {0x00};
   const uint8_t readOneSample[] = {0x05};
+  const uint8_t readOneSampleSized[] = {PASCO_READ_ONE_SAMPLE_CMD, PASCO_SOIL_MOISTURE_PACKET_SIZE};
   const uint8_t burstTransfer[] = {0x0E};
   const uint8_t customDetect[] = {0x37, 0x08};
   const uint8_t customRead1[] = {0x37, 0x01, 0x00};
@@ -272,6 +290,8 @@ void runPascoCommandSequence(BLERemoteCharacteristic *target, const char *label)
   writePacket(target, keepAlive, sizeof(keepAlive));
   delayWithBackground(1200);
   writePacket(target, readOneSample, sizeof(readOneSample));
+  delayWithBackground(1200);
+  writePacket(target, readOneSampleSized, sizeof(readOneSampleSized));
   delayWithBackground(1200);
   writePacket(target, burstTransfer, sizeof(burstTransfer));
   delayWithBackground(1200);
@@ -283,6 +303,20 @@ void runPascoCommandSequence(BLERemoteCharacteristic *target, const char *label)
   delayWithBackground(1200);
   writePacket(target, customBurst, sizeof(customBurst));
   delayWithBackground(1200);
+}
+
+void runOneSampleRequest(BLERemoteCharacteristic *target, const char *label) {
+  if (target == nullptr) {
+    Serial.print("READ_ONE_SAMPLE target unavailable: ");
+    Serial.println(label);
+    return;
+  }
+
+  Serial.print("Sending PASCO READ_ONE_SAMPLE to ");
+  Serial.println(label);
+
+  const uint8_t readOneSampleSized[] = {PASCO_READ_ONE_SAMPLE_CMD, PASCO_SOIL_MOISTURE_PACKET_SIZE};
+  writePacket(target, readOneSampleSized, sizeof(readOneSampleSized));
 }
 
 int characteristicPriority(BLERemoteService *service, BLERemoteCharacteristic *chr) {
@@ -577,6 +611,16 @@ void processCommand(String line) {
 
   if (line.equalsIgnoreCase("pasco1")) {
     runPascoCommandSequence(pascoWrite1 != nullptr ? pascoWrite1 : preferredWriteCharacteristic, "pasco-write-1");
+    return;
+  }
+
+  if (line.equalsIgnoreCase("sample0")) {
+    runOneSampleRequest(pascoWrite0, "pasco-write-0");
+    return;
+  }
+
+  if (line.equalsIgnoreCase("sample1")) {
+    runOneSampleRequest(pascoWrite1 != nullptr ? pascoWrite1 : preferredWriteCharacteristic, "pasco-write-1");
     return;
   }
 
