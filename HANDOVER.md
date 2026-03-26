@@ -173,6 +173,15 @@ Internal labels used in the sketch:
 - `pasco-notify-1` = `4a5c0001-...-0002`
 - `pasco-read-notify` = `4a5c0001-...-0004`
 
+Important correction discovered later:
+
+- those internal labels in the sketch are likely wrong for PASCO protocol semantics
+- the published `pasco-ble` package indicates the intended roles are:
+- `...0002` = send command
+- `...0003` = receive response / notifications
+- `...0005` = send acknowledgement
+- this means the current ESP32 sketch has probably been sending commands to the wrong characteristic (`...0003`)
+
 ## Observed packet families
 
 ### `0x82` packet
@@ -241,6 +250,46 @@ Important findings from `pasco_ble_device.py`:
 
 This strongly suggests the AirLink is using the same PASCO BLE framing family as the public Python library, even though the AirLink itself is not directly documented as a public developer API.
 
+## PASCO npm / TypeScript clue
+
+Package checked:
+
+- `https://www.npmjs.com/package/pasco-ble`
+
+The published package contents were downloaded and inspected locally from the npm tarball.
+
+Important findings from the extracted files:
+
+- `protocol-handler.js` confirms:
+- `SENSOR_SERVICE_ID = 0`
+- `SEND_CMD_CHAR_ID = 2`
+- `RECV_CMD_CHAR_ID = 3`
+- `SEND_ACK_CHAR_ID = 5`
+- `GCMD_READ_ONE_SAMPLE = 0x05`
+- `GCMD_XFER_BURST_RAM = 0x0E`
+- `GCMD_CUSTOM_CMD = 0x37`
+- `GEVT_SENSOR_ID = 0x82`
+
+- `pasco-ble-device.js` confirms:
+- notifications from service IDs greater than `0` are treated as sensor measurement responses
+- service `0` is treated as the device-response path
+
+- `sensor-manager.js` confirms:
+- the library does not send bare `0x05`
+- it sends `[0x05, packetSize]`
+- for one-shot reads it expects a response shaped like `C0 00 05 ...payload`
+
+- `datasheets.js` contains a `WirelessSoilMoisture` interface entry and a soil moisture sensor definition with:
+- sensor ID `2065`
+- raw measurement `adc`
+- `adc` type `RawDigital`
+- `DataSize = 2`
+
+Important caveat:
+
+- this packaged soil moisture definition is for the PASCO wireless soil moisture sensor family, not necessarily the exact PASPORT soil moisture sensor plugged into the AirLink
+- but it still strongly supports the idea that the relevant raw reading is a 2-byte ADC-like value
+
 ## ESP32 probe results so far
 
 Simple probe commands and PASCO-style command probes did not unlock a richer or faster measurement stream.
@@ -253,11 +302,23 @@ Commands already tested through the sketch:
 - `pasco`
 - `pasco0`
 - `pasco1`
+- `sample0`
+- `sample1`
 
 The result was:
 
 - the recurring `0x85` stream remained the main observable live data path
 - no clearly richer packet family appeared from the tested command set
+- exact `READ_ONE_SAMPLE` tests using `05 02` also did not produce the expected `C0 00 05` response
+
+Most recent important interpretation:
+
+- the failed `sample0` / `sample1` tests do not necessarily mean `READ_ONE_SAMPLE` is unsupported
+- they more likely mean the ESP32 sketch is still writing to the wrong PASCO characteristic
+- based on `pasco-ble`, the next sketch patch should:
+- write commands to `...0002`
+- listen on `...0003`
+- use `...0005` for acknowledgements if needed
 
 ## Raw-value baselines captured so far
 
@@ -287,9 +348,10 @@ Current interpretation:
 
 If continuing from here, the next Codex should prioritize one of:
 
-1. Treat `0x85` as the working raw ADC stream and improve the ESP32 sketch for cleaner logging such as CSV lines: `millis,adc,state`.
-2. Compare the raw `0x85` stream more systematically against SPARKvue `Voltage` and `%VWC` readings to determine whether SPARKvue is applying a conversion layer above this stream.
-3. Continue deeper PASCO command reverse-engineering, but assume that the simple `0x05`, `0x0E`, and `0x37` probes already tried were insufficient to unlock the more reactive SPARKvue-style data path.
+1. Patch the ESP32 sketch to follow the PASCO channel roles from `pasco-ble`:
+   command on `...0002`, response on `...0003`, ack on `...0005`.
+2. Retry `READ_ONE_SAMPLE` using `[0x05, 0x02]` after the channel-role fix and watch for a `C0 00 05` response.
+3. If that still fails, continue treating `0x85` as the working raw ADC stream and compare it more systematically against SPARKvue `Voltage` and `%VWC`.
 
 ## Practical current conclusion
 
